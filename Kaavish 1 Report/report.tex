@@ -1,0 +1,112 @@
+% adapted by WS from SSR's Word document and from the 5-part series at
+% https://www.overleaf.com/learn/latex/How_to_Write_a_Thesis_in_LaTeX_(Part_1):_Basic_Structure
+% reviewed by MAM
+
+\documentclass[12pt,twosided]{report}
+
+\usepackage[titletoc]{appendix} % for adding appendix to TOC
+\usepackage{biblatex}  % reference management
+\usepackage{geometry}  % better margins and margin control
+\usepackage{graphicx}  % to include figures
+\usepackage{hyperref}  % internal and external links
+\usepackage[utf8]{inputenc}  % support for non-ASCII characters
+\usepackage{listings}  % typset code
+\usepackage{outlines}  % easy nesting of lists
+\usepackage{tabularx}  % more control over table column width
+\usepackage{titlesec}  % customize chapter title 
+\usepackage{upquote}  % prevent mishandling of single quotes in listings
+
+
+% TODO: Customize the appearance of hyperref links using \hypersetup
+% See https://en.wikibooks.org/wiki/LaTeX/Hyperlinks#Customization
+
+% Custom format of chapter title.
+\titleformat{\chapter}[hang]{\bf\huge}{\thechapter.}{2pc}{}
+
+% Separate folder for images named 'images'.
+\graphicspath{ {images/} }
+
+% Separate file for references
+\addbibresource{references.bib}
+
+% Replace with your title
+\title{Kaavish 1}
+
+% Allow recalling document title
+% from https://tex.stackexchange.com/a/15806/44301
+\makeatletter\let\Title\@title\makeatother  
+\usepackage{xcolor}
+
+\begin{document}
+
+\include{titlepage}  % title page.
+\include{approval}  % approval page.
+
+\chapter*{Dedication}
+My Degree, Future Wives and Kids.
+
+\chapter*{Acknowledgements}
+We want to thank the CS faculty and ...
+
+\chapter*{Abstract}
+Abstract goes here
+
+% The following are automatically populated by LaTeX \chapter, \section and related, \figure, and \table.
+\tableofcontents
+\listoffigures
+\listoftables
+
+% TODO: Put chapters in a separate folder named 'chapters'.
+
+\chapter{Introduction}
+\label{chap:intro}
+\input{chapters/introduction}
+
+\chapter{Literature Review}
+\label{chap:lit}
+\input{chapters/review}
+
+\chapter{Software Requirement Specification (SRS)}
+\label{chap:srs}
+\input{chapters/srs}
+
+\chapter{Software Design Specification (SDS)}
+\label{chap:sds}
+\input{chapters/sds}
+
+\chapter{Experiments and Results}
+\label{chap:results}
+\input{chapters/results}
+
+\chapter{Conclusion and Future Work}
+\label{chap:outro}
+\input{chapters/conclusion}
+
+\begin{appendices}
+
+\titleformat{\chapter}[hang]{\bf\huge}{Appendix \thechapter.}{2pc}{}
+% \titleformat{\chapter}[hang]{\bf\huge}{\thechapter.}{2pc}{}
+
+  
+% This appendix is optional.
+\chapter{More Math}
+\input{chapters/appendix-math}
+
+% This appendix is required if the data set is not fully described in the main text.
+\chapter{Data}
+\input{chapters/appendix-data}
+
+% This appendix is required if the code is not fully described in the main text.
+\chapter{Code}
+\input{chapters/appendix-code}
+\end{appendices}
+
+% Print the bibliography with a ToC entry and titled, "References".
+\printbibliography[heading=bibintoc,title={References}]
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
