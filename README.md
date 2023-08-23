@@ -14,8 +14,6 @@ for various metrics, and a complete overall driving score.
 
 ![image](https://github.com/driveranalysis/Manuever-Classification/assets/29225983/dd43a707-eb65-43b2-afdb-f2067264f7ad)
 
-This section focuses on Maneuver Classification
-
 ## Example
 Our Maneuver Classification process relies on the fact that each Maneuver (e.g. Aggressive Right Turn, Acceleration, etc.) showcases a distinct pattern in the combined view of the Accelerometer, Gyroscope, and Magnetometer. And so depending on our definition of the magnitude and timeframe that we look at, we can easily identify these maneuvers from a pre-processed dataset.
 
